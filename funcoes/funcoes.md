@@ -2,14 +2,19 @@
 
 ### Operador Function
 
-* Funções são subprogramas com um conjunto de instruções internas que podem ou não receber valores(parâmetros). 
+* Funções são subprogramas com um conjunto de instruções internas que podem ou não receber valores(parâmetros).
 Sempre retornam um valor. Podem ser chamadas de diversas partes de um programa. Em Javascript uma função é sempre um objeto do tipo `Function`. E ela é um `objeto` de primeira classe, que significa que ela pode ter propriedades e metodos e pode ser chamada.
 
-* Uma função que não tenha o método return, irá retornar um valor padrão que geralmente é `undefined`. 
+* Uma função que não tenha o método return, irá retornar um valor padrão que geralmente é `undefined`.
 Um caso especial é quando uma função é criada com `new` usando o método construtor que nesse caso irá retornar `this`.
 
-* Uma função em Javascript recebe argumentos(parâmetros) por valor, que significa que os valores passados 
-se alterados na função não surtirão efeito fora dela, a não ser, se o argumento for uma referência de um objeto. 
+* Uma função em Javascript recebe argumentos(parâmetros) por valor, que significa que os valores passados
+se alterados na função não surtirão efeito fora dela, a não ser, se o argumento for uma referência de um objeto.
+
+> Para resolver problemas de contexto de mudança da referência de
+this(principalmente em funções de callback ) podemos usar as arrow functions ou
+usar alguns truques em versões anteriores do Javascript. Alguns truques podem ser:
+copiar o contexto this para outra variável: `let that = this;` ou usar o método `bind`.
 
 **Dica do MDN:**
 > A palavra reservada this não se refere a função sendo executada no momento, então você deve referenciar um objeto Function pelo nome, mesmo dentro do corpo da função.
@@ -24,7 +29,8 @@ function minhaFuncao( parametro1, parametro2 = 'Valor padrão' ) {
 
 ### Arrow Function (ECMAScript 2015 (ES6))
 
-Vem do conceito funcional da linguagem. Tem uma sintaxe curta.
+Vem do conceito funcional da linguagem. Tem uma sintaxe curta.  
+Resolve o problema de contexto que muda quando temos uma função de callback.  
 
 ```js
 let adicao = ( a, b ) => {
@@ -39,7 +45,7 @@ let imprime = () => console.log( 'Javascript' ); // Uso sem parâmetros.
 
 ### O construtor `Function`
 
-Objetos `Function` podem ser criados com `new` assim como todos os outros objetos em javascript. 
+Objetos `Function` podem ser criados com `new` assim como todos os outros objetos em javascript.
 Se um objeto `Function` for criado sem o `new` ele será tratado como se fosse invocado com um construtor comum.
 
 ```js
@@ -66,6 +72,6 @@ if ('function' == typeof window.funcao) {
 * [MDN - developer.mozilla.org](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope)
 
 
-ver mais em: 
+ver mais em:
 * https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function
 * https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Funções
