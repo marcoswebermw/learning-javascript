@@ -3,7 +3,10 @@
 O spread operator índica um elemento que represente uma coleção de elementos que pode ser usado no lugar dessa coleção só que de
 forma mais simples.  
 
-O spread operator é usado onde são esperados vários parâmetros como é o caso de uma função ou em vários elementos de um array.
+O spread operator é usado onde são esperados vários parâmetros como é o caso de uma função ou em vários elementos de um array.  
+
+O spread operator é o oposto do operador rest.   
+  
 
 **Exemplos**
 
