@@ -1,8 +1,3 @@
-## Classes (ES6)
-
-* Criar classe.
-
-```js
 // Criar classe.
 class Animal{
   // Construtor.
@@ -22,12 +17,8 @@ const animal1 = new Animal('Rex', 'Cachorro');
 console.log(animal1.nome);
 console.log(animal1.tipo);
 console.log(animal1.andar());
-```
 
-
-* Extender classe.
-
-```js
+// ---------------------------------------------------------
 // Extendendo uma classe.
 class Pato extends Animal{
 
@@ -46,8 +37,3 @@ console.log(p.nome);
 console.log(p.tipo);
 console.log(p.andar());
 console.log(p.emitirSom());
-```
-
-
-> Não existe `hoisting` em definição de classes ES6. Ocorrerá um `ReferenceError` se
-tentarmos acessar uma classe sem antes a definir.
