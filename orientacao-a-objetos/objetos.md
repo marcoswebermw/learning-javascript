@@ -2,7 +2,7 @@
 
 Objetos tem propriedades, que nada mais são do que variáveis vinculadas ao objeto.  
 As propriedades são as características do objeto.  
-Propriedades que não tem valor definido tem o valor `ùndefined`.  
+Propriedades que não tem valor definido tem o valor `undefined`.  
 Propriedades podem ser acessadas por notação de pontos ou com strings como arrays associativos.  
 Também é possível usar a notação de colchetes com o comando `for...in` para iterar por todas as propriedades enumeráveis de um objeto.  
 Só não é objeto em Javascript os tipos null e undefined.  
@@ -38,8 +38,8 @@ Com `Object.getOwnPropertyNames(objeto)`.  Retorna um array com todos os nomes d
 
 ```js
 let minhaMoto = {
-    cor: "vermelho", 
-    rodas: 4, 
+    cor: "vermelho",
+    rodas: 4,
     motor: {cilindros: 4, tamanho: 2.2} // Propriedade também é um objeto.
 };
 ```
