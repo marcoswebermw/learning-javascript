@@ -18,7 +18,7 @@ Quando a operação bloqueante terminar sua execução no pool de threads, é en
 
 Não será mais usado uma thread para cada processo melhorando o desempenho das aplicações.  
   
-(Event Loop)[http://softwareengineeringdaily.com/wp-content/uploads/2015/07/event-loop.jpg]  
+[Event Loop](http://softwareengineeringdaily.com/wp-content/uploads/2015/07/event-loop.jpg)  
   
 ### Vantagens do Nodejs
   
@@ -39,7 +39,7 @@ Não será mais usado uma thread para cada processo melhorando o desempenho das 
 
 ### Referências
   
-* (NodeJS)[https://nodejs.org/]  
-* (Documentação)[https://nodejs.org/en/docs/]  
-* (Be Mean - Gitbook)[https://be-mean.gitbooks.io/be-mean-node-js/content/index.html]  
-* (Umbler Youtube)[https://www.youtube.com/watch?v=gq9uGdZCKxI]  
+* [NodeJS](https://nodejs.org/)  
+* [Documentação](https://nodejs.org/en/docs/)  
+* [Be Mean - Gitbook](https://be-mean.gitbooks.io/be-mean-node-js/content/index.html)  
+* [Umbler Youtube](https://www.youtube.com/watch?v=gq9uGdZCKxI)  
