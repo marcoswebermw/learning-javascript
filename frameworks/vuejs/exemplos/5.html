@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+
+        <label for="time">Time</label>
+        <input type="text" name="time" id="time" v-model="time">
+        <br><br>
+
+        <label for="campeao">Na temporada passada foi:</label><br>
+        <input type="checkbox" name="classificacao" id="classificacao" value="Campeão da NBA" v-model="classificacao">Campeão da NBA<br>
+        <input type="checkbox" name="classificacao" id="classificacao" value="Campeão de Conferência" v-model="classificacao">Campeão de Conferência<br>
+        <input type="checkbox" name="classificacao" id="classificacao" value="Campeão de Divisão" v-model="classificacao">Campeão de Divisão<br>
+        <br>
+
+        <label for="conferencia">Conferência</label><br>
+        <select name="conferencia" id="conferencia" v-model="conferencia">
+            <option value="Leste">Leste</option>            
+            <option value="Oeste">Oeste</option>            
+        </select>
+        <br><br>
+
+        <label for="divisao">Divisão</label><br>
+        <input type="radio" name="divisao" id="divisao" value="Atlântico" v-model="divisao">Atlântico<br>
+        <input type="radio" name="divisao" id="divisao" value="Pacífico" v-model="divisao">Pacífico<br>
+        <input type="radio" name="divisao" id="divisao" value="Central" v-model="divisao">Central<br>
+        <input type="radio" name="divisao" id="divisao" value="Sudeste" v-model="divisao">Sudeste<br>
+        <input type="radio" name="divisao" id="divisao" value="Sudoeste" v-model="divisao">Sudoeste<br>
+        <input type="radio" name="divisao" id="divisao" value="Noroeste" v-model="divisao">Noroeste<br>
+        <br>
+
+        <hr>
+
+        <br>
+        <h2>Informações Adicionadas</h2>
+        Time: {{time}} <br>
+        Resultados da temporada passada: {{classificacao}} <br>
+        Conferência: {{conferencia}} <br>
+        Divisão: {{divisao}} <br>
+    </div>
+
+    <!-- Este link só é usado em dev. Usar outro para produção. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Times da NBA:",
+                time: "",
+                classificacao: [],
+                conferencia: "",
+                divisao: ""
+            }
+        });
+    </script>
+    
+</body>
+</html>

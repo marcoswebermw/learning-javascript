@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="app">
+        <br><br><br>
+        <div class="container">
+            <h1>{{ titulo }}</h1>
+            <button @click.stop.prevent="getUsers()" class="btn btn-success">Obter Usuários</button>
+        </div>
+    </div>
+
+    <!-- Este link só é usado em dev. Usar outro para produção. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var mixin = {
+            created() {
+                console.log("Hook do lifecycle: Created do Mixin")
+            },
+            methods: {
+                getUsers() {
+                    console.log("getUsers() do Mixin")
+                }
+            }
+        }
+
+        var app = new Vue({
+            el: "#app",
+
+            mixins: [mixin],
+
+            created() {
+                console.log("Hook do lifecycle: Created do Vue")
+            },
+            data: {
+                titulo: "Mixins."
+            },
+            methods: {
+                // Substitui o getUsers() do Mixin. O escopo interno prevalece.
+                getUsers() {
+                    console.log("getUsers() do Vue")
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

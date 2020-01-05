@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="app">
+        <br><br><br>
+        <div class="container">
+            <h1>{{ titulo }}</h1>
+            <button @click.stop.prevent="getUsers()" class="btn btn-success">Obter Usuários</button>
+
+            <br><br><br>
+
+            <div v-if="response.status == 'error'" class="alert alert-danger">{{ response.msg }}</div>
+
+            <div v-if="loader.users" class="">Carregando usuários...</div>
+
+            <ul>
+                <li v-for="user in users">{{user.name}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Este link só é usado em dev. Usar outro para produção. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- CDN do axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Scripts do Vue.js -->
+    <script>
+        var mixin = {
+            methods: {
+                getUsers() {
+                    this.loader.users = true
+
+                    var url = "http://jsonplaceholder.typicode.com/users"
+                    var instanciaVue = this
+                    // Quando a consulta terminar é executada uma ação.
+                    axios.get(url).then(function(resposta){
+                        instanciaVue.users = resposta.data
+                        instanciaVue.loader.users = false
+                    })
+                    // Vá a aba 'network -> response' para ver o json gerado.
+                }
+            }
+        }
+
+        var app = new Vue({
+            el: "#app",
+
+            mixins: [mixin],
+
+            data: {
+                titulo: "Ajax com Axios",
+                users: [],
+                loader: {
+                    users: false,
+                },
+                response: {
+                    msg: "Aconteceu algum erro.",
+                    status: ""
+                }
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>

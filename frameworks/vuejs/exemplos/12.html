@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    
+        <div id="app">
+            <h1>{{titulo}}</h1><br>
+            <barra-menu></barra-menu>
+            <barra-menu></barra-menu>
+            <barra-menu2></barra-menu2>
+            <barra-menu2></barra-menu2>
+        </div>
+
+        <!-- Template -->
+        <template id="menu2">
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+            </ul>
+        </template>
+
+        <!-- Este link só é usado em dev. Usar outro para produção. -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+
+            // Este aqui não é o melhor método.
+            Vue.component('barra-menu', {
+                template: "<ul><li>Primeiro Elemento</li><li>Segundo Elemento</li></ul>"
+            })
+
+            // Este aqui é um método melhor com uso do template.
+            Vue.component('barra-menu2', {
+                template: "#menu2"
+            })
+
+
+            var app = new Vue({
+                el: "#app",
+                
+                data: {
+                    titulo: "Hooks e Ciclo de Vida."
+                }, 
+            })
+        </script>
+    
+</body>
+</html>

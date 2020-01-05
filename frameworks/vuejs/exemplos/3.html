@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+</head>
+<body>
+
+    <div id="app">
+        {{titulo}}<hr>
+        <div v-if="personagem.id === 1">
+            Nome: {{personagem.nome}} <br>
+            Filme: {{personagem.filme}} <br>
+        </div>
+        <div v-else>
+            Nenhum personagem cadastrado.
+        </div>
+    </div>
+
+    <!-- Este link só é usado em dev. Usar outro para produção. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: "Personagens",
+                personagem: {
+                    id: 1,
+                    nome: "Neo",
+                    filme: "Matrix"
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

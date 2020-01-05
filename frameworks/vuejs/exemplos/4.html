@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+</head>
+<body>
+
+    <div id="app">
+            <h1>{{titulo}}</h1>
+            <ul v-for="item in times">
+                <li>{{item}}</li>
+            </ul>    
+            <br>
+            <h1>{{titulo}}</h1>
+            <ul v-for="(item, index) in times">
+                <li>{{index}} - {{item.time}}</li>
+            </ul>               
+    </div>
+
+    <!-- Este link só é usado em dev. Usar outro para produção. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Times da NBA:",
+                times: [
+                    {time: "San Antonio Spurs"},
+                    {time: "Toronto Raptors"},
+                    {time: "Los Angeles Clipers"},
+                    {time: "Los Angeles Lakers"},
+                    {time: "Chicago Bulls"}
+                ]            
+            }
+        });
+    </script>
+    
+</body>
+</html>

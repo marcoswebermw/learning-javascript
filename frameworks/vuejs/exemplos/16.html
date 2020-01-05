@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usando o Vuejs</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="app">
+        <br><br><br>
+        <div class="container">
+            <card>
+                <!-- Aqui vai o conteúdo que vai aparecer no slot -->
+                <!-- Usando slots nomeados -->
+                <br>
+
+                <h5 slot="title" class="card-title">Título do primeiro cartão</h5>
+                <!-- Usando templates para colocar mais de um parágrafo no slot -->
+                <template slot="text">
+                    <p class="card-text">Primeiro parágrafo do conteúdo ou texto do primeiro cartão.</p>
+                    <p class="card-text">Segundo parágrafo do conteúdo ou texto do primeiro cartão.</p>
+                </template>
+                <a slot="action" href="#" class="btn btn-primary">Primeiro Botão</a>
+
+            </card>
+
+            <br>
+
+            <card>
+                <!-- Aqui vai o conteúdo que vai aparecer no slot -->
+                <!-- Usando slots nomeados -->
+                <br>
+
+                <h5 slot="title" class="card-title">Título do segundo cartão</h5>
+                <!-- Usando templates para colocar mais de um parágrafo no slot -->
+                <template slot="text">
+                    <p class="card-text">Primeiro parágrafo do conteúdo ou texto do segundo cartão.</p>
+                    <p class="card-text">Segundo parágrafo do conteúdo ou texto do segundo cartão.</p>
+                </template>
+                <a slot="action" href="#" class="btn btn-primary">Segundo Botão</a>
+
+            </card>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="card">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <!-- slots nomeados -->
+                <!-- O conteúdo dinâmico será adicionado aqui -->
+                <slot name="title"></slot>
+                <slot name="text"></slot>
+                <slot name="action"></slot>
+
+            </div>
+        </div>
+    </template>
+
+    <!-- Este link só é usado em dev. Usar outro para produção. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('card', {
+            template: "#card",
+            data() {
+                return {
+                    title: '',
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: "#app",
+
+            data: {
+                titulo: "Componentes."
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>
